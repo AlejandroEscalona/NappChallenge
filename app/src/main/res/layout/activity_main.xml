@@ -18,7 +18,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Workers"
+            android:text="@string/title_home"
             android:textColor="?attr/colorSecondary"
             app:layout_constraintTop_toTopOf="parent"
             android:textAppearance="?attr/textAppearanceHeadline4"
@@ -26,25 +26,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/padding_default"
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingHorizontal="@dimen/padding_default"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvTitle"-->
+<!--            >-->
+
+<!--            <View-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/color_divider"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                />-->
+
+
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:listitem="@layout/item_worker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            >
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="@color/color_divider"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
+            app:layout_constraintBottom_toBottomOf="parent">
 
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/lProgress"
@@ -52,6 +65,7 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:padding="@dimen/padding_default"
+            app:isGone="@{viewModel.isLoaded()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
