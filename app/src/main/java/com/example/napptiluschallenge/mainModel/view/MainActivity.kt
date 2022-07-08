@@ -73,6 +73,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     //OnClickListener
     override fun onClick(worker: Worker) {
-        Snackbar.make(mBinding.root, worker.id, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(mBinding.root, worker.id.toString(), Snackbar.LENGTH_LONG).show()
     }
 }

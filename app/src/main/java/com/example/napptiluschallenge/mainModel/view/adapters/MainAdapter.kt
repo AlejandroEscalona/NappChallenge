@@ -54,7 +54,7 @@ class MainAdapter(private val listener: OnClickListener) :
 
         fun setListener(worker: Worker){
             mBinding?.root?.setOnClickListener {
-
+                listener.onClick(worker)
             }
         }
     }
