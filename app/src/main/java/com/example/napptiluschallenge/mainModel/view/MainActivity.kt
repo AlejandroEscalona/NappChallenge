@@ -1,9 +1,11 @@
 package com.example.napptiluschallenge.mainModel.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +16,9 @@ import com.example.napptiluschallenge.databinding.ActivityMainBinding
 import com.example.napptiluschallenge.mainModel.viewModel.MainViewModel
 import com.example.napptiluschallenge.BR
 import com.example.napptiluschallenge.common.entities.Worker
+import com.example.napptiluschallenge.common.entities.WorkersEntity
+import com.example.napptiluschallenge.detailModel.DetailFragment
+import com.example.napptiluschallenge.detailModel.viewModel.DetailViewModel
 import com.example.napptiluschallenge.mainModel.view.adapters.MainAdapter
 import com.example.napptiluschallenge.mainModel.view.adapters.OnClickListener
 import com.google.android.material.snackbar.Snackbar
@@ -24,6 +29,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mAdapter : MainAdapter
     private lateinit var mGridLayout: GridLayoutManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,14 +111,29 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 mBinding.viewModel?.getWorkersByGender(gender)
             }
         }
+    }
 
+    private fun startIntent(intent: Intent){
+        if(intent.resolveActivity(packageManager) != null)
+            startActivity(intent)
+        else
+            Toast.makeText(this,"Error in call", Toast.LENGTH_SHORT).show()
+    }
 
+    private fun launchDetailFragment() {
+        val fragment = DetailFragment()
 
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
 
+        fragmentTransaction.add(R.id.containerMain, fragment)
+        fragmentTransaction.commit()
+        fragmentTransaction.addToBackStack(null)
     }
 
     //OnClickListener
     override fun onClick(worker: Worker) {
         Snackbar.make(mBinding.root, worker.id.toString(), Snackbar.LENGTH_LONG).show()
+        launchDetailFragment()
     }
 }

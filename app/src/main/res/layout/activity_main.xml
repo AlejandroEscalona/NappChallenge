@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
     
     <data>
         <variable
@@ -12,7 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".mainModel.view.MainActivity">
+        tools:context=".mainModel.view.MainActivity"
+        android:id="@+id/containerMain"
+        >
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTitle"
@@ -72,6 +76,7 @@
                     android:id="@+id/professionTypes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:hint="@string/profession"
                     android:inputType="none"
                     tools:text="Developer" />
 
@@ -93,25 +98,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/filters"
             app:strokeWidth="1dp" />
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:paddingHorizontal="@dimen/padding_default"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tvTitle"-->
-<!--            >-->
-
-<!--            <View-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="1dp"-->
-<!--                android:background="@color/color_divider"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                />-->
-
-
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

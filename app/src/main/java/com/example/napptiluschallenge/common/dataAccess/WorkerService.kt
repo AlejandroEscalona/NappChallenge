@@ -7,4 +7,7 @@ import retrofit2.http.GET
 interface WorkerService {
     @GET(Constants.BASE_URL+Constants.ALL_WORKER)
     suspend fun getAllWorker() : WorkersEntity
+
+    @GET(Constants.BASE_URL+Constants.ALL_WORKER)
+    suspend fun getWorker(id  : Int) : WorkersEntity
 }

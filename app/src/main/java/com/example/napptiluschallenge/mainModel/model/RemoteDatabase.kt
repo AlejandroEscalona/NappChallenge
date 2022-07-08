@@ -20,4 +20,8 @@ class RemoteDatabase {
     suspend fun getWorkers () : WorkersEntity = withContext(Dispatchers.IO){
         service.getAllWorker()
     }
+
+    suspend fun getWorker (id : Int) : WorkersEntity = withContext(Dispatchers.IO){
+        service.getWorker(id)
+    }
 }
