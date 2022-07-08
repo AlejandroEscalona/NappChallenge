@@ -45,6 +45,7 @@ def material_version = "1.6.1"
 def constraint_version = "2.1.4"
 def activity_version = "1.5.0"
 def retrofit_version = "2.9.0"
+def glide_version = "4.13.2"
 
 dependencies {
 
@@ -66,10 +67,11 @@ dependencies {
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.google.code.gson:gson:2.9.0'
 
     //Glide
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     //Tests
     testImplementation 'junit:junit:4.13.2'

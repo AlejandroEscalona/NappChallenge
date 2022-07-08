@@ -1,13 +1,14 @@
 package com.example.napptiluschallenge.mainModel.viewModel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.napptiluschallenge.R
 import com.example.napptiluschallenge.common.entities.WorkersEntity
 import com.example.napptiluschallenge.mainModel.model.MainRepository
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.launch
+import org.json.JSONArray
+import org.json.JSONObject
+
 
 class MainViewModel : ViewModel() {
     private val repository = MainRepository()
@@ -26,7 +27,11 @@ class MainViewModel : ViewModel() {
             try {
                 loaded.value = false
                 val resultServer = repository.getWorkers()
-                result.value = resultServer
+                val workers = resultServer.results.filter {
+                    it.gender == "F"
+                }
+               resultServer.results = workers
+               result.value = resultServer
             }catch (e : Exception){
                 snackbarMsg.value = R.string.server_error
             }finally {
