@@ -3,4 +3,23 @@
     <string name="server_error">Server Error</string>
     <string name="title_home">Workers</string>
     <string name="description_img_photo">workerImg</string>
+    <string name="gender">Gender</string>
+    <string name="profession">Profession</string>
+    <string name="filter">Filter</string>
+
+
+    <string-array name="genderList">
+        <item>F</item>
+        <item>M</item>
+    </string-array>
+
+    <string-array name="professionList">
+        <item>Developer</item>
+        <item>Metalworker</item>
+        <item>Gemcutter</item>
+        <item>Medic</item>
+        <item>Brewer</item>
+    </string-array>
+
+
 </resources>

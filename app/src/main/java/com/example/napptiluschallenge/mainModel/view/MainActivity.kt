@@ -2,6 +2,8 @@ package com.example.napptiluschallenge.mainModel.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         setupObservers()
         setupAdapter()
         setupRecyclerView()
+        setupFilter()
     }
 
     private fun setupObservers() {
@@ -64,11 +67,48 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         mAdapter = MainAdapter(this)
     }
 
+    private fun setupFilter(){
+        val genderList = resources.getStringArray(R.array.genderList)
+        val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, genderList)
+        mBinding.genderTypes.setAdapter(arrayAdapter)
+
+        val professionList = resources.getStringArray(R.array.professionList)
+        val arrayAdapter2 = ArrayAdapter(this, R.layout.dropdown_item, professionList)
+        mBinding.professionTypes.setAdapter(arrayAdapter2)
+    }
+
     override fun onStart() {
         super.onStart()
         lifecycleScope.launch{
             mBinding.viewModel?.getWorkers()
+
         }
+    }
+
+
+    fun onFilter(view: View){
+        val gender = mBinding.genderTypes.text.toString()
+        val profession = mBinding.professionTypes.text.toString()
+
+        if(profession != "" && gender != ""){
+            lifecycleScope.launch{
+                mBinding.viewModel?.getWorkersByProfessionAndGender(profession,gender)
+            }
+        }
+        else if(profession != ""){
+            lifecycleScope.launch{
+                mBinding.viewModel?.getWorkersByProfession(profession)
+            }
+        }
+        else if(gender != ""){
+            lifecycleScope.launch{
+                mBinding.viewModel?.getWorkersByGender(gender)
+            }
+        }
+
+
+
+
     }
 
     //OnClickListener

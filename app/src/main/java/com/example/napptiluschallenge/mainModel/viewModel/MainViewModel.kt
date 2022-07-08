@@ -27,14 +27,64 @@ class MainViewModel : ViewModel() {
             try {
                 loaded.value = false
                 val resultServer = repository.getWorkers()
-                val workers = resultServer.results.filter {
-                    it.gender == "F"
-                }
-               resultServer.results = workers
                result.value = resultServer
             }catch (e : Exception){
                 snackbarMsg.value = R.string.server_error
             }finally {
+                loaded.value = true
+            }
+        }
+    }
+
+    suspend fun getWorkersByGender(gender : String) {
+        viewModelScope.launch {
+            try {
+                loaded.value = false
+                val resultServer = repository.getWorkers()
+                val workers = resultServer.results.filter {
+                    it.gender == gender
+                }
+                resultServer.results = workers
+                result.value = resultServer
+            } catch (e: Exception) {
+                snackbarMsg.value = R.string.server_error
+            } finally {
+                loaded.value = true
+            }
+        }
+    }
+
+    suspend fun getWorkersByProfession(profession : String) {
+        viewModelScope.launch {
+            try {
+                loaded.value = false
+                val resultServer = repository.getWorkers()
+                val workers = resultServer.results.filter {
+                    it.profession == profession
+                }
+                resultServer.results = workers
+                result.value = resultServer
+            } catch (e: Exception) {
+                snackbarMsg.value = R.string.server_error
+            } finally {
+                loaded.value = true
+            }
+        }
+    }
+
+    suspend fun getWorkersByProfessionAndGender(profession : String, gender : String) {
+        viewModelScope.launch {
+            try {
+                loaded.value = false
+                val resultServer = repository.getWorkers()
+                val workers = resultServer.results.filter {
+                    it.profession == profession && it.gender == gender
+                }
+                resultServer.results = workers
+                result.value = resultServer
+            } catch (e: Exception) {
+                snackbarMsg.value = R.string.server_error
+            } finally {
                 loaded.value = true
             }
         }
