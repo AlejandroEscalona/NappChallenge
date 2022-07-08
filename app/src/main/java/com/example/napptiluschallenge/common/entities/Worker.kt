@@ -8,7 +8,7 @@ data class Worker(
     val random_string : String,
     val song : String,
     val gender : String,
-    val imageURL : String,
+    val image : String,
     val profession : String,
     val email : String,
     val age : Int,

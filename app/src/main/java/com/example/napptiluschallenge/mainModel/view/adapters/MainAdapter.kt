@@ -39,7 +39,7 @@ class MainAdapter(private val listener: OnClickListener) :
             holder.mBinding?.setVariable(BR.result, worker)
             holder.mBinding?.executePendingBindings()
             Glide.with(mContext)
-                .load(worker.imageURL)
+                .load(worker.image)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
                 .into(mBinding!!.imageURL)
