@@ -8,6 +8,13 @@
     <string name="filter">Filter</string>
 
 
+    <string name="worker_age">Age: %d</string>
+    <string name="worker_height">Height: %d</string>
+    <string name="worker_profession">Profession: %s</string>
+    <string name="worker_gender">Gender: %s</string>
+    <string name="worker_country">Country: %s</string>
+
+
     <string-array name="genderList">
         <item>F</item>
         <item>M</item>

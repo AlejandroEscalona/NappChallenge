@@ -1,6 +1,7 @@
 package com.example.napptiluschallenge.mainModel.model
 
 import com.example.napptiluschallenge.common.dataAccess.WorkerService
+import com.example.napptiluschallenge.common.entities.Worker
 import com.example.napptiluschallenge.common.entities.WorkersEntity
 import com.example.napptiluschallenge.common.utils.Constants
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +22,7 @@ class RemoteDatabase {
         service.getAllWorker()
     }
 
-    suspend fun getWorker (id : Int) : WorkersEntity = withContext(Dispatchers.IO){
+    suspend fun getWorker (id : Int) : Worker = withContext(Dispatchers.IO){
         service.getWorker(id)
     }
 }

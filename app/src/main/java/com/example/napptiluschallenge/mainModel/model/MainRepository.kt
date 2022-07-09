@@ -7,8 +7,4 @@ class MainRepository {
 
     suspend fun getWorkers(): WorkersEntity = remoteDatabase.getWorkers()
 
-    suspend fun getWorkers(id : Int): WorkersEntity = remoteDatabase.getWorker(id)
-
-
-
 }

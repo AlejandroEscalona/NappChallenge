@@ -15,6 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NapptilusChallenge"
         tools:targetApi="31">
+
+<!--        <activity android:name=".detailModel.DetailActivity"-->
+<!--            android:parentActivityName=".mainModel.view.MainActivity">-->
+<!--            &lt;!&ndash; The meta-data tag is required if you support API level 15 and lower &ndash;&gt;-->
+<!--            <meta-data-->
+<!--                android:name="android.support.PARENT_ACTIVITY"-->
+<!--                android:value=".mainModel.view.MainActivity" />-->
+<!--        </activity>-->
+
+        <activity
+            android:name=".detailModel.DetailActivity"
+            android:exported="false" />
         <activity
             android:name=".mainModel.view.MainActivity"
             android:exported="true">

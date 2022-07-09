@@ -3,22 +3,19 @@ package com.example.napptiluschallenge.mainModel.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.napptiluschallenge.R
 import com.example.napptiluschallenge.databinding.ActivityMainBinding
 import com.example.napptiluschallenge.mainModel.viewModel.MainViewModel
 import com.example.napptiluschallenge.BR
 import com.example.napptiluschallenge.common.entities.Worker
-import com.example.napptiluschallenge.common.entities.WorkersEntity
-import com.example.napptiluschallenge.detailModel.DetailFragment
-import com.example.napptiluschallenge.detailModel.viewModel.DetailViewModel
+import com.example.napptiluschallenge.detailModel.DetailActivity
 import com.example.napptiluschallenge.mainModel.view.adapters.MainAdapter
 import com.example.napptiluschallenge.mainModel.view.adapters.OnClickListener
 import com.google.android.material.snackbar.Snackbar
@@ -40,6 +37,13 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         setupAdapter()
         setupRecyclerView()
         setupFilter()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        lifecycleScope.launch{
+            mBinding.viewModel?.getWorkers()
+        }
     }
 
     private fun setupObservers() {
@@ -83,13 +87,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         mBinding.professionTypes.setAdapter(arrayAdapter2)
     }
 
-    override fun onStart() {
-        super.onStart()
-        lifecycleScope.launch{
-            mBinding.viewModel?.getWorkers()
 
-        }
-    }
 
 
     fun onFilter(view: View){
@@ -113,27 +111,26 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         }
     }
 
-    private fun startIntent(intent: Intent){
-        if(intent.resolveActivity(packageManager) != null)
-            startActivity(intent)
-        else
-            Toast.makeText(this,"Error in call", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun launchDetailFragment() {
-        val fragment = DetailFragment()
-
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-
-        fragmentTransaction.add(R.id.containerMain, fragment)
-        fragmentTransaction.commit()
-        fragmentTransaction.addToBackStack(null)
-    }
+//    private fun launchDetailFragment() {
+//        val fragment = DetailFragment()
+//
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//
+//        fragmentTransaction.add(R.id.containerMain, fragment)
+//        fragmentTransaction.commit()
+//        fragmentTransaction.addToBackStack(null)
+//    }
 
     //OnClickListener
     override fun onClick(worker: Worker) {
         Snackbar.make(mBinding.root, worker.id.toString(), Snackbar.LENGTH_LONG).show()
-        launchDetailFragment()
+        val message = worker.id.toString()
+        val intent = Intent(this, DetailActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
+
+        //launchDetailFragment()
     }
 }
