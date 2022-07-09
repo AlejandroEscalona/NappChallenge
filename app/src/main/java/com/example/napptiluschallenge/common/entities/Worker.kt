@@ -7,6 +7,7 @@ data class Worker(
     val color : String,
     //val favorite : List<String>,
     val food : String,
+    val quota : String,
     val description : String,
     val random_string : String,
     val song : String,
