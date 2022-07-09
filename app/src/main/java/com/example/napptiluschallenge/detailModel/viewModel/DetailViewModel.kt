@@ -22,6 +22,7 @@ class DetailViewModel : ViewModel(){
     private val loaded = MutableLiveData<Boolean>()
     fun isLoaded() = loaded
 
+
     suspend fun getWorker(id : Int){
         viewModelScope.launch {
             try {

@@ -87,9 +87,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         mBinding.professionTypes.setAdapter(arrayAdapter2)
     }
 
-
-
-
     fun onFilter(view: View){
         val gender = mBinding.genderTypes.text.toString()
         val profession = mBinding.professionTypes.text.toString()
@@ -110,7 +107,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             }
         }
     }
-
 
     //OnClickListener
     override fun onClick(worker: Worker) {

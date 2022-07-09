@@ -3,8 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".detailModel.DetailFragment"
-    android:background="@color/white"
+    tools:context=".detailModel.DetailActivity"
     >
     <data>
         <variable
@@ -26,8 +25,9 @@
                 android:id="@+id/workerImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/ic_image"
+                android:src="@{worker.result.image}"
                 tools:src="@drawable/ic_image"
+                android:paddingVertical="@dimen/common_padding_min"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -36,8 +36,9 @@
                 android:id="@+id/tvFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Prueba de nombre"
+                tools:text="Test Name"
                 android:text="@{worker.result.first_name}"
+                android:layout_marginTop="@dimen/padding_default"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvLastName"
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 tools:text="Nunan"
+                android:layout_marginTop="@dimen/padding_default"
                 android:text="@{worker.result.last_name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvFirstName"
@@ -163,12 +165,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvAge"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-
                 />
-
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>
