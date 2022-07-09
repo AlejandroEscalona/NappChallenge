@@ -111,26 +111,13 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         }
     }
 
-//    private fun launchDetailFragment() {
-//        val fragment = DetailFragment()
-//
-//        val fragmentManager = supportFragmentManager
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//
-//        fragmentTransaction.add(R.id.containerMain, fragment)
-//        fragmentTransaction.commit()
-//        fragmentTransaction.addToBackStack(null)
-//    }
 
     //OnClickListener
     override fun onClick(worker: Worker) {
-        Snackbar.make(mBinding.root, worker.id.toString(), Snackbar.LENGTH_LONG).show()
-        val message = worker.id.toString()
+        val workerId = worker.id
         val intent = Intent(this, DetailActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, message)
+            putExtra("workerId", workerId)
         }
         startActivity(intent)
-
-        //launchDetailFragment()
     }
 }

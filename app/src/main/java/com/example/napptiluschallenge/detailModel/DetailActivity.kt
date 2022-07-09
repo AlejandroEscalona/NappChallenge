@@ -1,15 +1,14 @@
 package com.example.napptiluschallenge.detailModel
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.napptiluschallenge.BR
 import com.example.napptiluschallenge.R
-import com.example.napptiluschallenge.common.entities.Worker
 import com.example.napptiluschallenge.databinding.ActivityDetailBinding
 import com.example.napptiluschallenge.detailModel.viewModel.DetailViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -19,7 +18,6 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var mBinding : ActivityDetailBinding
 
-    private lateinit var mWorker : Worker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +35,10 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        val datos = this.getIntent().getExtras();
+        val id = datos!!.getInt("workerId")
         lifecycleScope.launch{
-            mBinding.worker?.getWorker(2)
+            mBinding.worker?.getWorker(id)
         }
     }
 
@@ -70,3 +70,4 @@ class DetailActivity : AppCompatActivity() {
             .into(mBinding.workerImage)
     }
 }
+
