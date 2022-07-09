@@ -46,6 +46,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        mBinding.genderTypes.text.clear()
+        mBinding.professionTypes.text.clear()
+    }
+
     private fun setupObservers() {
         mBinding.viewModel?.let {
             it.getSnackbarMsg().observe(this){ resMsg ->

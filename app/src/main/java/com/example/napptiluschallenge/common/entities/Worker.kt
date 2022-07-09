@@ -5,7 +5,6 @@ data class Worker(
     val first_name : String,
     val last_name : String,
     val color : String,
-    //val favorite : List<String>,
     val food : String,
     val quota : String,
     val description : String,
