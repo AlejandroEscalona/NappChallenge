@@ -14,8 +14,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        >
+        app:layout_constraintHorizontal_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,6 +27,7 @@
                 android:src="@{worker.result.image}"
                 tools:src="@drawable/ic_image"
                 android:paddingVertical="@dimen/common_padding_min"
+                android:elevation="90dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>

@@ -33,7 +33,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val extras = this.intent.extras;
+        val extras = this.intent.extras
         val idWorker = extras?.getInt("workerId")
         lifecycleScope.launch{
             mBinding.worker?.getWorker(idWorker?: 0)
@@ -49,7 +49,6 @@ class DetailActivity : AppCompatActivity() {
                 Snackbar.make(mBinding.root, resMsg, Snackbar.LENGTH_LONG).show()
             }
         }
-
     }
 
     private fun setupViewModel() {

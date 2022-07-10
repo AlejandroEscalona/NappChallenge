@@ -5,11 +5,15 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_filter.xml" value="0.175" />
         <entry key="app/src/main/res/drawable-v24/ic_image.xml" value="0.192" />
+        <entry key="app/src/main/res/drawable/shadow.xml" value="0.1845" />
+        <entry key="app/src/main/res/drawable/worker_img_detail.xml" value="0.1845" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/item_worker.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/item_worker.xml" value="0.32065217391304346" />
+        <entry key="app/src/main/res/layout/shadow_img.xml" value="0.34974358974358977" />
+        <entry key="app/src/main/res/layout/shapeimg.xml" value="0.34974358974358977" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1575" />
       </map>
     </option>
