@@ -55,7 +55,6 @@ class DetailActivity : AppCompatActivity() {
         val vm: DetailViewModel by viewModels()
         mBinding.lifecycleOwner = this
         mBinding.setVariable(BR.worker, vm)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -54,22 +54,24 @@ dependencies {
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
 
-    //MVVM
+    //MVVM (Clean Architecture recomended from Google)
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    //Coroutines
+
+    //Coroutines (Async task)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
-    //LiveData
+
+    //LiveData (Data to observe)
     implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$lifecycle_version"
 
     //Kotlin-Activity
     implementation("androidx.activity:activity-ktx:$activity_version")
 
-    //Retrofit
+    //Retrofit (Get data from API)
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.google.code.gson:gson:2.9.0'
 
-    //Glide
+    //Glide (Load image easily)
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
