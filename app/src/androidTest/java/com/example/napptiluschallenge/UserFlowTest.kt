@@ -29,7 +29,7 @@ class UserFlowTest {
         tvTitle.check(matches(withText("Workers")))
 
         //wait to response from API
-        Thread.sleep(1000)
+        Thread.sleep(3000)
 
         //verify recyclerView is display
         val recycler = onView(withId(R.id.recyclerView))

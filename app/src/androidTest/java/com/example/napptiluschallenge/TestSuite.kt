@@ -6,7 +6,8 @@ import org.junit.runners.Suite
 @RunWith(Suite::class)
 @Suite.SuiteClasses(
     MainActivityTest::class,
-    UserFlowTest::class
+    UserFlowTest::class,
+    DetailActivityTest::class
 )
 class TestSuite
 
