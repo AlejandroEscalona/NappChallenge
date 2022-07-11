@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.example.napptiluschallenge.common.utils.CommonUtils"/>
         <variable
             name="result"
             type="com.example.napptiluschallenge.common.entities.Worker" />

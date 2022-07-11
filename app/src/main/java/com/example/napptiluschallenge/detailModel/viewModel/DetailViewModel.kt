@@ -19,20 +19,13 @@ class DetailViewModel : ViewModel(){
     private val snackbarMsg = MutableLiveData<Int>()
     fun getSnackbarMsg() = snackbarMsg
 
-    private val loaded = MutableLiveData<Boolean>()
-    fun isLoaded() = loaded
-
-
     suspend fun getWorker(id : Int){
         viewModelScope.launch {
             try {
-                loaded.value = false
                 val resultServer = repository.getWorker(id)
                 worker.value = resultServer
             }catch (e : Exception){
                 snackbarMsg.value = R.string.server_error
-            }finally {
-                loaded.value = true
             }
         }
     }

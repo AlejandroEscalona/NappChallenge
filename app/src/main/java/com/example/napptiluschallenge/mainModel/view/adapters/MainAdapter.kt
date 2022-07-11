@@ -20,7 +20,6 @@ class MainAdapter(private val listener: OnClickListener) :
 
     private lateinit var mContext: Context
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         mContext = parent.context
 
@@ -28,8 +27,6 @@ class MainAdapter(private val listener: OnClickListener) :
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_worker, parent, false)
         )
-
-
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -46,8 +43,6 @@ class MainAdapter(private val listener: OnClickListener) :
             setListener(worker)
         }
     }
-
-
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val mBinding = DataBindingUtil.bind<ItemWorkerBinding>(view)
@@ -66,6 +61,4 @@ class MainAdapter(private val listener: OnClickListener) :
         override fun areContentsTheSame(oldItem: Worker, newItem: Worker): Boolean =
             oldItem == newItem
     }
-
-
 }
